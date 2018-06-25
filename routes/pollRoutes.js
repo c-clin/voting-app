@@ -4,6 +4,15 @@ const Poll = mongoose.model('poll');
 const User = mongoose.model('users');
 
 module.exports = app => {
+  // @route   Get api/polls/all
+  // @desc    Get a list of all polls
+  // access   Public
+  app.get('/api/polls/all', (req, res) => {
+    Poll.find({}).then(polls => {
+      res.send(polls);
+    });
+  });
+
   // @route   Post api/polls/create
   // @desc    Create a new poll
   // access   Private

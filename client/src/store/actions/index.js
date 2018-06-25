@@ -1,3 +1,3 @@
 export { fetchUser } from './authActions';
 
-export { createNewPoll } from './pollActions';
+export { createNewPoll, onFetchAllPolls } from './pollActions';

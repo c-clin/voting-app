@@ -10,12 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import authReducer from './store/reducers/authReducer';
+import pollReducer from './store/reducers/pollReducer';
 
 const composedEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  poll: pollReducer
 });
 
 const store = createStore(

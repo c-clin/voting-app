@@ -63,7 +63,7 @@ export class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">All Polls</NavLink>
+                <NavLink href="/all-polls">All Polls</NavLink>
               </NavItem>
               {auth ? authLinks : guestLinks}
             </Nav>
@@ -81,38 +81,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Header);
-
-// export class Header extends Component {
-//   render() {
-//     const authLinks = (
-//       <ul>
-//         <li>
-//           <a href="">New Poll</a>
-//         </li>
-//         <li>
-//           <a href="/api/logout">Logout</a>
-//         </li>
-//       </ul>
-//     );
-//     const guestLinks = (
-//       <ul>
-//         <li>
-//           <a href="/">All Polls</a>
-//         </li>
-//         <li>
-//           <a href="/auth/facebook">Login with Facebook</a>
-//         </li>
-//         <li>
-//           <a href="/auth/google">Login with Google</a>
-//         </li>
-//       </ul>
-//     );
-//     console.log(this.props.auth.auth);
-
-//     return (
-//       <div className="Header">
-//         {this.props.auth.auth ? authLinks : guestLinks}
-//       </div>
-//     );
-//   }
-// }
