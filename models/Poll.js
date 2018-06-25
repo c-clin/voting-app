@@ -6,9 +6,12 @@ const PollSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   },
-  title: String,
+  question: String,
   answers: [String],
-  votedBy: [String]
+  votedBy: {
+    type: [String],
+    default: []
+  }
 });
 
 mongoose.model('poll', PollSchema);
