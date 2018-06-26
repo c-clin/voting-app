@@ -1,0 +1,18 @@
+.Login {
+  border: 1px solid grey;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  vertical-align: center;
+  text-align: center;
+  margin-top: 10%;
+  box-shadow: 2px 2px 2px #686868;
+
+  .login-item {
+    margin: 10px;
+  }
+
+  .login-item img:hover {
+    cursor: pointer;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   Collapse,
@@ -38,7 +39,7 @@ export class Header extends React.Component {
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem>
-            <NavLink href="/new-poll">New Poll</NavLink>
+            <Link to="/new-poll">New Poll</Link>
           </DropdownItem>
           <DropdownItem>Your Polls</DropdownItem>
           <DropdownItem divider />
@@ -51,7 +52,7 @@ export class Header extends React.Component {
 
     const guestLinks = (
       <NavItem>
-        <NavLink href="/">Login</NavLink>
+        <NavLink href="/login">Login</NavLink>
       </NavItem>
     );
 
@@ -63,7 +64,9 @@ export class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/all-polls">All Polls</NavLink>
+                <Link to="/all-polls" className="nav-link">
+                  All Polls
+                </Link>
               </NavItem>
               {auth ? authLinks : guestLinks}
             </Nav>
@@ -80,4 +83,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(withRouter(Header));

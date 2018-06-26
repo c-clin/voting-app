@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './store/actions';
 import './main.css';
@@ -7,7 +7,7 @@ import './main.css';
 import Header from './components/Header';
 import NewPoll from './components/NewPoll';
 import AllPolls from './components/AllPolls';
-
+import Login from './components/Login';
 // testing purpose
 import axios from 'axios';
 window.axios = axios;
@@ -23,12 +23,15 @@ class App extends Component {
         <Header />
         <Route exact path="/new-poll" component={NewPoll} />
         <Route exact path="/all-polls" component={AllPolls} />
+        <Route exact path="/login" component={Login} />
       </div>
     );
   }
 }
 
-export default connect(
-  null,
-  actions
-)(App);
+export default withRouter(
+  connect(
+    null,
+    actions
+  )(App)
+);
