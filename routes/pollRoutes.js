@@ -18,19 +18,20 @@ module.exports = app => {
   // access   Private
   app.post('/api/polls/create', requireLogin, (req, res) => {
     const { question, answers } = req.body;
+    const _user = req.user.id;
+    console.log(answers);
 
-    User.findOne({ id: _user })
+    User.findOne({ _id: _user })
       .then(user => {
         if (user) {
           const poll = new Poll({
             _user: req.user.id,
             question,
-            answers
+            answers: answers
           });
-
           try {
             poll.save();
-            res.send('new poll saved');
+            res.send(poll);
           } catch (err) {
             res.status(422).send(err);
           }

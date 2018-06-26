@@ -4,16 +4,20 @@ import { ListGroup } from 'reactstrap';
 import * as actions from '../store/actions';
 
 import Modal from '../helpers/Modal';
+import DonutChart from '../helpers/DonutChart';
 import PollListItem from '../helpers/PollListItem';
 
 export class AllPolls extends Component {
+  state = {
+    chartId: 0
+  };
+
   componentWillMount = () => {
     this.props.onFetchAllPolls();
   };
 
-  modalClickHandler = () => {
-    this.props.modalShow = true;
-    console.log('modal clicked');
+  listClickHandler = e => {
+    this.setState({ chartId: e.target.id });
   };
 
   render() {
@@ -23,20 +27,27 @@ export class AllPolls extends Component {
       allPollsContent = polls.map(poll => {
         return (
           <PollListItem
+            id={polls.indexOf(poll)}
             key={poll._id}
             question={poll.question}
             poll={poll}
-            onClick={this.modalClickHandler}
           />
         );
       });
     }
 
+    let chart;
+    if (polls) {
+      chart = <DonutChart poll={polls[this.state.chartId]} />;
+    }
+
     return (
       <div>
         <h1>All Polls</h1>
-        <ListGroup flush>{allPollsContent}</ListGroup>
-        <Modal show={this.props.modalShow}>Poll Info</Modal>
+        <ListGroup flush onClick={this.listClickHandler}>
+          {allPollsContent}
+        </ListGroup>
+        <Modal show={this.props.modalShow}>{chart}</Modal>
       </div>
     );
   }

@@ -1,10 +1,19 @@
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import React from 'react';
+const DonutChart = props => {
+  console.log(props);
+  const labels = props.poll.answers.map(obj => {
+    return obj.answer;
+  });
 
-const doughnutGraph = props => {
+  const votes = props.poll.answers.map(obj => {
+    return obj.votes;
+  });
+
+  console.log(labels);
   const data = {
-    labels: ['Red', 'Green', 'Yellow'],
+    labels: labels,
     datasets: [
       {
         data: [300, 50, 100],
@@ -17,8 +26,8 @@ const doughnutGraph = props => {
   return (
     <Doughnut
       data={data}
-      width={100}
-      height={50}
+      width={60}
+      height={40}
       options={{
         maintainAspectRatio: false
       }}
@@ -26,4 +35,4 @@ const doughnutGraph = props => {
   );
 };
 
-export default doughnutGraph;
+export default DonutChart;

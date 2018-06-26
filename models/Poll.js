@@ -7,7 +7,12 @@ const PollSchema = new Schema({
     ref: 'user'
   },
   question: String,
-  answers: [String],
+  answers: [
+    {
+      answer: String,
+      votes: Number
+    }
+  ],
   votedBy: {
     type: [String],
     default: []

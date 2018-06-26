@@ -1,5 +1,4 @@
 import React from 'react';
-import { ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../store/actions/actionTypes';
@@ -7,9 +6,9 @@ import * as actionTypes from '../store/actions/actionTypes';
 const PollListItem = props => {
   return (
     <div onClick={props.modalOn}>
-      <ListGroupItem disabled tag="a" href="#">
+      <div href="#" id={props.id} className="list-group-item">
         {props.question}
-      </ListGroupItem>
+      </div>
     </div>
   );
 };
