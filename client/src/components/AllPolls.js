@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { ListGroup } from 'reactstrap';
 import * as actions from '../store/actions';
 
+import Modal from '../helpers/Modal';
 import PollListItem from '../helpers/PollListItem';
 
 export class AllPolls extends Component {
@@ -10,14 +11,24 @@ export class AllPolls extends Component {
     this.props.onFetchAllPolls();
   };
 
-  render() {
-    let allPollsContent;
+  modalClickHandler = () => {
+    this.props.modalShow = true;
+    console.log('modal clicked');
+  };
 
+  render() {
     const polls = this.props.polls.allPolls;
-    console.log(polls);
+    let allPollsContent;
     if (polls) {
       allPollsContent = polls.map(poll => {
-        return <PollListItem key={poll._id} question={poll.question} />;
+        return (
+          <PollListItem
+            key={poll._id}
+            question={poll.question}
+            poll={poll}
+            onClick={this.modalClickHandler}
+          />
+        );
       });
     }
 
@@ -25,6 +36,7 @@ export class AllPolls extends Component {
       <div>
         <h1>All Polls</h1>
         <ListGroup flush>{allPollsContent}</ListGroup>
+        <Modal show={this.props.modalShow}>Poll Info</Modal>
       </div>
     );
   }
@@ -32,7 +44,8 @@ export class AllPolls extends Component {
 
 const mapStateToProps = state => {
   return {
-    polls: state.poll
+    polls: state.poll,
+    modalShow: state.poll.modalShow
   };
 };
 
