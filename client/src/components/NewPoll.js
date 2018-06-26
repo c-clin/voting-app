@@ -26,7 +26,7 @@ export class NewPoll extends React.Component {
     let answers = [];
     let i = 1;
     while (i <= this.state.answerOptions) {
-      answers.push(this.state[`answer${i}`]);
+      answers.push({ answer: this.state[`answer${i}`], votes: 0 });
       i++;
     }
 

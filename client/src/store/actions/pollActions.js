@@ -16,6 +16,8 @@ export const onFetchAllPolls = () => dispatch => {
 };
 
 export const createNewPoll = pollData => dispatch => {
+  console.log('actions', pollData);
+
   axios
     .post('/api/polls/create', pollData)
     .then(res => console.log(res))

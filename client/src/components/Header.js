@@ -38,7 +38,7 @@ export class Header extends React.Component {
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem>
-            <a href="">New Poll</a>
+            <NavLink href="/new-poll">New Poll</NavLink>
           </DropdownItem>
           <DropdownItem>Your Polls</DropdownItem>
           <DropdownItem divider />
