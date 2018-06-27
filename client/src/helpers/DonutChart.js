@@ -27,11 +27,11 @@ const DonutChart = props => {
       <h3>{props.poll.question}</h3>
       <Doughnut
         data={data}
-        width={190}
-        height={190}
-        options={{
-          maintainAspectRatio: false
-        }}
+        width={50}
+        height={30}
+        // options={{
+        //   maintainAspectRatio: false
+        // }}
       />
     </div>
   );

@@ -41,8 +41,6 @@ export const createNewPoll = pollData => dispatch => {
 
 // vote on a poll
 export const onVotePoll = (data, selection) => dispatch => {
-  console.log(data, selection);
-
   const pollData = {
     index: selection,
     _id: data._id

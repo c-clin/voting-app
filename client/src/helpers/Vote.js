@@ -11,7 +11,6 @@ export class Vote extends Component {
   };
 
   render() {
-    console.log(this.props);
     const renderOptions = this.props.poll.answers.map(obj => {
       return (
         <FormGroup check key={obj._id}>

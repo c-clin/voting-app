@@ -64,7 +64,9 @@
   text-align: center; }
 
 .PollListItem button {
-  float: right; }
+  float: right;
+  cursor: pointer;
+  margin: 0 5px; }
 
 .Vote {
   text-align: left;
