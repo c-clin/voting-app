@@ -3,16 +3,18 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import * as actions from '../store/actions';
+import * as actionTypes from '../store/actions/actionTypes';
+import _ from 'lodash';
 
 export class NewPoll extends React.Component {
   state = {
     answerOptions: 2,
-    question: '',
-    answer1: '',
-    answer2: '',
-    answer3: '',
-    answer4: '',
-    answer5: ''
+    question: null,
+    answer1: null,
+    answer2: null,
+    answer3: null,
+    answer4: null,
+    answer5: null
   };
 
   answerOptionSelector = e => {
@@ -24,12 +26,25 @@ export class NewPoll extends React.Component {
   };
 
   submitPoll = () => {
+    let valid = false;
+    if (_.isEmpty(this.state.question)) {
+      this.props.onError('The question cannot be empty.');
+      return;
+    }
+
     let answers = [];
     let i = 1;
     while (i <= this.state.answerOptions) {
       answers.push({ answer: this.state[`answer${i}`], votes: 0 });
       i++;
     }
+
+    _.forEach(answers, ({ answer }) => {
+      if (!answer) {
+        this.props.onError('The answers cannot be empty.');
+        return false;
+      }
+    });
 
     const pollData = {
       question: this.state.question,
@@ -57,9 +72,13 @@ export class NewPoll extends React.Component {
       counter++;
     }
 
+    let errMsg;
+    errMsg = this.props.error ? this.props.error : null;
+
     return (
       <div className="NewPoll">
         <Form>
+          <p className="err-msg">{errMsg}</p>
           <FormGroup>
             <Label for="examplePassword">Question</Label>
             <Input
@@ -87,14 +106,30 @@ export class NewPoll extends React.Component {
             </Input>
           </FormGroup>
           {answerBoxes}
-          <Button onClick={this.submitPoll}>Create Poll</Button>
+          <Button color="success" onClick={this.submitPoll}>
+            Create Poll
+          </Button>
         </Form>
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    error: state.poll.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createNewPoll: (data, history) =>
+      dispatch(actions.createNewPoll(data, history)),
+    onError: error => dispatch({ type: actionTypes.ON_ERROR, payload: error })
+  };
+};
+
 export default connect(
-  null,
-  actions
+  mapStateToProps,
+  mapDispatchToProps
 )(withRouter(NewPoll));

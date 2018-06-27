@@ -46,7 +46,9 @@ export class Vote extends Component {
             {this.props.voteSubmitted ? (
               <p>Vote Submitted!</p>
             ) : (
-              <Button onClick={this.submitVoteHandler}>Submit Vote</Button>
+              <Button onClick={this.submitVoteHandler} color="info">
+                Submit Vote
+              </Button>
             )}
           </Col>
         </Form>

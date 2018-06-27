@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { ListGroup } from 'reactstrap';
 import * as actionTypes from '../store/actions/actionTypes';
 import * as actions from '../store/actions';
-
 import UserPollListItem from '../helpers/UserPollListItem';
 import Modal from '../helpers/Modal';
 import DonutChart from '../helpers/DonutChart';
+import { Button } from 'reactstrap';
 
 export class Dashboard extends Component {
   state = {
@@ -56,8 +56,12 @@ export class Dashboard extends Component {
         <div className="delete-box">
           Are you sure you want to delete this post?
           <br />
-          <button onClick={this.deletePollHandler}>Yes</button>
-          <button onClick={() => this.props.modalOff()}>No</button>
+          <Button onClick={this.deletePollHandler} color="danger">
+            Yes
+          </Button>
+          <Button onClick={() => this.props.modalOff()} color="info">
+            No
+          </Button>
         </div>
       );
     }

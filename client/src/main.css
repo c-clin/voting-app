@@ -8,7 +8,7 @@
   top: 0; }
   .Header .navbar a,
   .Header .navbar .nav-link {
-    color: #e7e7e7; }
+    color: #e7e7e7 !important; }
 
 .Header .navbar-brand {
   font-family: 'Fredericka the Great', cursive;
@@ -55,9 +55,12 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    color: red; }
     .Dashboard .delete-box button {
-      margin-top: 20px; }
+      cursor: pointer;
+      margin-top: 20px;
+      margin-right: 3px; }
 
 .NewPoll {
   max-width: 600px;
@@ -65,13 +68,16 @@
   padding-top: 90px; }
   .NewPoll form {
     margin: 10px;
-    padding: 30px;
+    padding: 30px 45px;
     border: 1px solid grey;
-    box-shadow: 1px 3px 3px #b1b1b1; }
+    box-shadow: 1px 3px 3px #b1b1b1;
+    font-weight: 300; }
   .NewPoll .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
     box-shadow: none; }
+  .NewPoll .err-msg {
+    color: red; }
 
 .Modal {
   position: absolute;
@@ -113,25 +119,29 @@
 .PollListItem .list-group-item {
   width: 70%;
   margin: 10px auto;
-  background-color: #ffdc9b;
+  background-color: rgba(60, 85, 131, 0.85);
   box-shadow: 1px 2px 2px grey;
-  font-weight: 300; }
+  font-weight: 300;
+  color: white; }
 
 .PollListItem button {
   float: right;
   cursor: pointer;
   margin: 0 5px;
-  border-bottom: 1.5px solid transparent;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
   background-color: transparent;
   transition: 0.3s all;
-  padding: 2px 8px; }
+  padding: 2px 10px;
+  font-weight: 300;
+  color: #ffe0cd; }
   .PollListItem button:focus {
     outline: none; }
   .PollListItem button:hover {
-    border-bottom: 1.5px solid rgba(47, 63, 92, 0.8); }
+    border-radius: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: rgba(194, 194, 194, 0.452); }
 
 .Vote {
   text-align: left;
@@ -218,7 +228,7 @@
     .Landing .text-box .heading-sub {
       display: block;
       font-size: 0.6em;
-      font-weight: 300; }
+      font-weight: 200; }
   .Landing .btn {
     text-transform: uppercase;
     text-decoration: none;
@@ -261,7 +271,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: beige; }
+  background-color: #f0f0d7; }
   .AllPolls h1 {
     text-align: center;
     color: #636363;

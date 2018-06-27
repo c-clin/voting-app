@@ -6,7 +6,7 @@ import * as actionTypes from '../store/actions/actionTypes';
 const PollListItem = props => {
   const voteBtn = (
     <button name="vote" onClick={props.modalOn}>
-      Vote
+      Vote&nbsp; <i className="fa fa-hand-o-left" aria-hidden="true" />
     </button>
   );
 
@@ -16,8 +16,7 @@ const PollListItem = props => {
         {props.question}
 
         <button name="view" onClick={props.modalOn}>
-          View
-          <i className="fa fa-line-chart" aria-hidden="true" />
+          View &nbsp;<i className="fa fa-line-chart" aria-hidden="true" />
         </button>
         {props.auth ? voteBtn : null}
       </div>

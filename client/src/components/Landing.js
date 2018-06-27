@@ -10,7 +10,7 @@ const Landing = props => {
     </Link>
   ) : (
     <Link to="/login" className="btn btn-login">
-      Log in to get started
+      Start creating
     </Link>
   );
 

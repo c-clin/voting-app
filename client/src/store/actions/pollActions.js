@@ -35,12 +35,11 @@ export const onFetchUserPolls = () => dispatch => {
 
 // create new poll
 export const createNewPoll = (pollData, history) => dispatch => {
-  console.log('actions', pollData);
-
-  axios
-    .post('/api/polls/create', pollData)
-    .then(res => history.push('/all-polls'))
-    .catch(e => console.log(e));
+  console.log(pollData);
+  // axios
+  //   .post('/api/polls/create', pollData)
+  //   .then(res => history.push('/all-polls'))
+  //   .catch(e => console.log(e));
 };
 
 // vote on a poll

@@ -59,7 +59,7 @@ export class Header extends React.Component {
 
     return (
       <div className="Header">
-        <Navbar expand="md">
+        <Navbar light expand="md">
           <span className="navbar-brand">
             <Link to="/" className="nav-link">
               Vote Now
