@@ -58,7 +58,8 @@
   background-color: rgba(0, 0, 0, 0.7); }
 
 .DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
-  width: 300px; }
+  width: 300px;
+  color: #40cfb7; }
 
 .DonutChart h3 {
   text-align: center; }
@@ -74,6 +75,9 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); }
+  .Vote .err-msg {
+    color: #ff0000;
+    font-size: small; }
 
 body {
   margin: 0;

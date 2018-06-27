@@ -5,9 +5,13 @@ import * as actions from '../store/actions';
 
 export class Vote extends Component {
   submitVoteHandler = () => {
-    var selection = document.querySelector('input[name = "radio2"]:checked')
-      .value;
-    this.props.onVotePoll(this.props.poll, selection);
+    if (!document.querySelector('input[name = "radio2"]:checked')) {
+      this.props.onVotePoll(this.props.poll, '');
+    } else {
+      var selection = document.querySelector('input[name = "radio2"]:checked')
+        .value;
+      this.props.onVotePoll(this.props.poll, selection);
+    }
   };
 
   render() {
@@ -28,6 +32,9 @@ export class Vote extends Component {
 
     return (
       <div className="Vote">
+        {this.props.error ? (
+          <p className="err-msg">{this.props.error}</p>
+        ) : null}
         <Form>
           <FormGroup tag="fieldset" row>
             <legend className="col-form-labelk">
@@ -50,6 +57,8 @@ export class Vote extends Component {
 
 const mapPropsToState = state => {
   return {
+    auth: state.auth.auth,
+    error: state.poll.error,
     voteSubmitted: state.poll.voteSubmitted
   };
 };

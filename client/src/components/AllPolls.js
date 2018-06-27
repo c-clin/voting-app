@@ -51,9 +51,16 @@ export class AllPolls extends Component {
       vote = <Vote poll={polls[this.state.chartId]} />;
     }
 
+    const authMsg = (
+      <p>
+        You must <a href="/login">log in</a> to vote!
+      </p>
+    );
+
     return (
       <div>
         <h1>All Polls</h1>
+        {this.props.auth ? null : authMsg}
         <ListGroup flush onClick={this.listClickHandler}>
           {allPollsContent}
         </ListGroup>
@@ -67,6 +74,7 @@ export class AllPolls extends Component {
 
 const mapStateToProps = state => {
   return {
+    auth: state.auth.auth,
     polls: state.poll.allPolls,
     modalShow: state.poll.modalShow
   };

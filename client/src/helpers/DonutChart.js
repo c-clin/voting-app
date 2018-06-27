@@ -16,8 +16,20 @@ const DonutChart = props => {
     datasets: [
       {
         data: votes,
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+        backgroundColor: [
+          '#FF6384',
+          '#40cfb7',
+          '#36A2EB',
+          '#FFCE56',
+          '#40cf53'
+        ],
+        hoverBackgroundColor: [
+          '#FF6384',
+          '#40cfb7',
+          '#36A2EB',
+          '#FFCE56',
+          '#40cf53'
+        ]
       }
     ]
   };

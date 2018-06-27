@@ -36,6 +36,7 @@
 // Donut Chart
 .DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
   width: 300px;
+  color: #40cfb7;
 }
 
 .DonutChart h3 {
@@ -58,4 +59,9 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  .err-msg {
+    color: #ff0000;
+    font-size: small;
+  }
 }

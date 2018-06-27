@@ -30,31 +30,43 @@ export const onFetchUserPolls = () => dispatch => {
 };
 
 // create new poll
-export const createNewPoll = pollData => dispatch => {
+export const createNewPoll = (pollData, history) => dispatch => {
   console.log('actions', pollData);
 
   axios
     .post('/api/polls/create', pollData)
-    .then(res => console.log(res))
+    .then(res => history.push('/all-polls'))
     .catch(e => console.log(e));
 };
 
 // vote on a poll
 export const onVotePoll = (data, selection) => dispatch => {
-  const pollData = {
-    index: selection,
-    _id: data._id
-  };
+  if (!selection) {
+    dispatch({
+      type: actionTypes.ON_ERROR,
+      payload: 'Please choose an option!'
+    });
+  } else {
+    const pollData = {
+      index: selection,
+      _id: data._id
+    };
 
-  axios
-    .post('/api/polls/vote', pollData)
-    .then(res => {
-      dispatch(onFetchAllPolls());
-      dispatch({
-        type: actionTypes.SUBMIT_VOTE
+    axios
+      .post('/api/polls/vote', pollData)
+      .then(res => {
+        dispatch(onFetchAllPolls());
+        dispatch({
+          type: actionTypes.SUBMIT_VOTE
+        });
+      })
+      .catch(e => {
+        dispatch({
+          type: actionTypes.ON_ERROR,
+          payload: e.response.data.error
+        });
       });
-    })
-    .catch(e => console.log(e));
+  }
 };
 
 // delete a poll

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import * as actions from '../store/actions';
@@ -35,7 +36,7 @@ export class NewPoll extends React.Component {
       answers: answers
     };
 
-    this.props.createNewPoll(pollData);
+    this.props.createNewPoll(pollData, this.props.history);
   };
 
   render() {
@@ -84,11 +85,6 @@ export class NewPoll extends React.Component {
             </Input>
           </FormGroup>
           {answerBoxes}
-          {/* <FormGroup>
-            <Label for="exampleText">Text Area</Label>
-            <Input type="textarea" name="text" id="exampleText" />
-          </FormGroup> */}
-
           <Button onClick={this.submitPoll}>Submit</Button>
         </Form>
       </div>
@@ -99,4 +95,4 @@ export class NewPoll extends React.Component {
 export default connect(
   null,
   actions
-)(NewPoll);
+)(withRouter(NewPoll));
