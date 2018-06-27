@@ -8,6 +8,7 @@ export const fetchAllPolls = data => {
   };
 };
 
+// fetch all polls
 export const onFetchAllPolls = () => dispatch => {
   axios
     .get('/api/polls/all')
@@ -15,11 +16,27 @@ export const onFetchAllPolls = () => dispatch => {
     .catch(e => console.log(e));
 };
 
+// create new poll
 export const createNewPoll = pollData => dispatch => {
   console.log('actions', pollData);
 
   axios
     .post('/api/polls/create', pollData)
     .then(res => console.log(res))
+    .catch(e => console.log(e));
+};
+
+// vote on a poll
+export const onVotePoll = (data, selection) => dispatch => {
+  console.log(data, selection);
+
+  const pollData = {
+    index: selection,
+    _id: data._id
+  };
+
+  axios
+    .post('/api/polls/vote', pollData)
+    .then(res => dispatch(onFetchAllPolls()))
     .catch(e => console.log(e));
 };

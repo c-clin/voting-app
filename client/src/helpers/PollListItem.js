@@ -5,9 +5,11 @@ import * as actionTypes from '../store/actions/actionTypes';
 
 const PollListItem = props => {
   return (
-    <div onClick={props.modalOn}>
+    <div onClick={props.modalOn} className="PollListItem">
       <div href="#" id={props.id} className="list-group-item">
         {props.question}
+        <button name="view">View</button>
+        <button name="vote">Vote</button>
       </div>
     </div>
   );

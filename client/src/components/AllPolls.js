@@ -6,10 +6,12 @@ import * as actions from '../store/actions';
 import Modal from '../helpers/Modal';
 import DonutChart from '../helpers/DonutChart';
 import PollListItem from '../helpers/PollListItem';
+import Vote from '../helpers/Vote';
 
 export class AllPolls extends Component {
   state = {
-    chartId: 0
+    chartId: 0,
+    command: null
   };
 
   componentWillMount = () => {
@@ -17,11 +19,18 @@ export class AllPolls extends Component {
   };
 
   listClickHandler = e => {
-    this.setState({ chartId: e.target.id });
+    console.log(e.target.parentNode.id);
+    console.log(e.target.name);
+    this.setState({ chartId: e.target.parentNode.id });
+    if (e.target.name === 'view') {
+      this.setState({ command: 'view' });
+    } else {
+      this.setState({ command: 'vote' });
+    }
   };
 
   render() {
-    const polls = this.props.polls.allPolls;
+    const polls = this.props.polls;
     let allPollsContent;
     if (polls) {
       allPollsContent = polls.map(poll => {
@@ -36,9 +45,10 @@ export class AllPolls extends Component {
       });
     }
 
-    let chart;
-    if (polls) {
+    let chart, vote;
+    if (this.props.modalShow) {
       chart = <DonutChart poll={polls[this.state.chartId]} />;
+      vote = <Vote poll={polls[this.state.chartId]} />;
     }
 
     return (
@@ -47,7 +57,9 @@ export class AllPolls extends Component {
         <ListGroup flush onClick={this.listClickHandler}>
           {allPollsContent}
         </ListGroup>
-        <Modal show={this.props.modalShow}>{chart}</Modal>
+        <Modal show={this.props.modalShow}>
+          {this.state.command === 'view' ? chart : vote}
+        </Modal>
       </div>
     );
   }
@@ -55,7 +67,7 @@ export class AllPolls extends Component {
 
 const mapStateToProps = state => {
   return {
-    polls: state.poll,
+    polls: state.poll.allPolls,
     modalShow: state.poll.modalShow
   };
 };
