@@ -1,4 +1,4 @@
-.Dashboard {
+.AllPolls {
   padding-top: 80px;
   position: absolute;
   top: 0;
@@ -11,16 +11,5 @@
     text-align: center;
     color: #636363;
     font-weight: 300;
-  }
-
-  .delete-box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    & button {
-      margin-top: 20px;
-    }
   }
 }

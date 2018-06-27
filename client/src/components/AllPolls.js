@@ -24,8 +24,10 @@ export class AllPolls extends Component {
     this.setState({ chartId: e.target.parentNode.id });
     if (e.target.name === 'view') {
       this.setState({ command: 'view' });
-    } else {
+    } else if (e.target.name === 'vote') {
       this.setState({ command: 'vote' });
+    } else {
+      return;
     }
   };
 
@@ -62,8 +64,8 @@ export class AllPolls extends Component {
     this.props.loading
       ? (allPollsContent = <div className="loader">Loading...</div>)
       : (allPollsContent = (
-          <div>
-            <h1>All Polls</h1>
+          <div className="AllPolls">
+            <h1>All Available Polls</h1>
             {this.props.auth ? null : authMsg}
             <ListGroup flush onClick={this.listClickHandler}>
               {pollsListItem}

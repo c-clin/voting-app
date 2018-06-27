@@ -5,7 +5,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -59,9 +58,13 @@ export class Header extends React.Component {
     );
 
     return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Vote Now</NavbarBrand>
+      <div className="Header">
+        <Navbar expand="md">
+          <span className="navbar-brand">
+            <Link to="/" className="nav-link">
+              Vote Now
+            </Link>
+          </span>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

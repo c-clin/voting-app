@@ -58,7 +58,7 @@ export class NewPoll extends React.Component {
     }
 
     return (
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div className="NewPoll">
         <Form>
           <FormGroup>
             <Label for="examplePassword">Question</Label>
@@ -66,12 +66,14 @@ export class NewPoll extends React.Component {
               type="text"
               name="question"
               id="examplePassword"
-              placeholder="Question placeholder"
+              placeholder="Ex: What's the best house pet?"
               onChange={this.inputChangeHandler}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="exampleSelect">Answer options</Label>
+            <Label for="exampleSelect">
+              How many answer options would you like?
+            </Label>
             <Input
               type="select"
               name="select"
@@ -85,7 +87,7 @@ export class NewPoll extends React.Component {
             </Input>
           </FormGroup>
           {answerBoxes}
-          <Button onClick={this.submitPoll}>Submit</Button>
+          <Button onClick={this.submitPoll}>Create Poll</Button>
         </Form>
       </div>
     );

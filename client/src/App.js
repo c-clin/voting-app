@@ -9,6 +9,7 @@ import NewPoll from './components/NewPoll';
 import AllPolls from './components/AllPolls';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
 
 // testing purpose
 import axios from 'axios';
@@ -27,6 +28,7 @@ class App extends Component {
         <Route exact path="/all-polls" component={AllPolls} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/" component={Landing} />
       </div>
     );
   }

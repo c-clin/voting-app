@@ -1,10 +1,29 @@
-.Header ul {
-  list-style: none; }
-  .Header ul li {
-    display: inline;
-    padding: 10px 18px; }
-  .Header ul a {
-    text-decoration: none; }
+.Header .navbar {
+  background-color: rgba(47, 63, 92, 0.85);
+  color: #e7e7e7;
+  position: fixed;
+  z-index: 100;
+  height: 65px;
+  width: 100%;
+  top: 0; }
+  .Header .navbar a,
+  .Header .navbar .nav-link {
+    color: #e7e7e7; }
+
+.Header .navbar-brand {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 1.9em; }
+
+.Header .dropdown-menu {
+  background-color: rgba(47, 63, 92, 0.85); }
+  .Header .dropdown-menu .dropdown-item:focus,
+  .Header .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(226, 226, 226, 0.432);
+    color: black;
+    outline: none; }
+    .Header .dropdown-menu .dropdown-item:focus a:hover,
+    .Header .dropdown-menu .dropdown-item:hover a:hover {
+      text-decoration: none; }
 
 .Login {
   border: 1px solid grey;
@@ -20,26 +39,53 @@
   .Login .login-item img:hover {
     cursor: pointer; }
 
-.Dashboard .delete-box {
+.Dashboard {
+  padding-top: 80px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); }
-  .Dashboard .delete-box button {
-    margin-top: 20px; }
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: beige; }
+  .Dashboard h1 {
+    text-align: center;
+    color: #636363;
+    font-weight: 300; }
+  .Dashboard .delete-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .Dashboard .delete-box button {
+      margin-top: 20px; }
+
+.NewPoll {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 90px; }
+  .NewPoll form {
+    margin: 10px;
+    padding: 30px;
+    border: 1px solid grey;
+    box-shadow: 1px 3px 3px #b1b1b1; }
+  .NewPoll .form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
 
 .Modal {
-  position: fixed;
+  position: absolute;
   z-index: 500;
   background-color: #fff;
-  width: 60%;
-  height: 75%;
+  min-width: 450px;
+  max-width: 60%;
+  min-height: 70%;
   overflow: scroll;
   border: 1px solid #1d1d1d;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  left: 20%;
-  top: 15%;
+  left: 30%;
+  top: 16%;
   box-sizing: border-box;
   transition: all 0.3s ease-out; }
 
@@ -64,10 +110,28 @@
 .DonutChart h3 {
   text-align: center; }
 
+.PollListItem .list-group-item {
+  width: 70%;
+  margin: 10px auto;
+  background-color: #ffdc9b;
+  box-shadow: 1px 2px 2px grey;
+  font-weight: 300; }
+
 .PollListItem button {
   float: right;
   cursor: pointer;
-  margin: 0 5px; }
+  margin: 0 5px;
+  border-bottom: 1.5px solid transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: transparent;
+  transition: 0.3s all;
+  padding: 2px 8px; }
+  .PollListItem button:focus {
+    outline: none; }
+  .PollListItem button:hover {
+    border-bottom: 1.5px solid rgba(47, 63, 92, 0.8); }
 
 .Vote {
   text-align: left;
@@ -82,7 +146,7 @@
 .loader {
   color: #61c7d4;
   font-size: 20px;
-  margin: 100px auto;
+  margin: 200px auto;
   width: 1em;
   height: 1em;
   border-radius: 50%;
@@ -132,8 +196,79 @@
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em; } }
 
+.Landing {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgba(82, 82, 82, 0.8), rgba(61, 114, 180, 0.8)), url(./assets/landing.jpg);
+  background-size: cover;
+  background-position: top; }
+  .Landing .text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; }
+    .Landing .text-box .heading-main {
+      font-family: 'Fredericka the Great', cursive;
+      text-shadow: 1px 2px 2px #313131;
+      display: block;
+      font-size: 1.9em;
+      font-weight: 400; }
+    .Landing .text-box .heading-sub {
+      display: block;
+      font-size: 0.6em;
+      font-weight: 300; }
+  .Landing .btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative; }
+    .Landing .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+      .Landing .btn:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .Landing .btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+    .Landing .btn-login {
+      margin-top: 30px;
+      background-color: #fff;
+      color: grey; }
+      .Landing .btn-login::after {
+        background-color: #fff; }
+    .Landing .btn::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.4s; }
+
+.AllPolls {
+  padding-top: 80px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: beige; }
+  .AllPolls h1 {
+    text-align: center;
+    color: #636363;
+    font-weight: 300; }
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: beige; }

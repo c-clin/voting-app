@@ -1,11 +1,14 @@
 @import 'header';
 @import 'login';
 @import 'dashboard';
+@import 'newPoll';
 @import 'helpers';
+@import 'landing';
+@import 'allPolls';
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: beige;
 }

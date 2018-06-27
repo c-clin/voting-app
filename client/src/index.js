@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 
 import './main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import authReducer from './store/reducers/authReducer';

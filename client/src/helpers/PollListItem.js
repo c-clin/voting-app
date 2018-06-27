@@ -17,6 +17,7 @@ const PollListItem = props => {
 
         <button name="view" onClick={props.modalOn}>
           View
+          <i className="fa fa-line-chart" aria-hidden="true" />
         </button>
         {props.auth ? voteBtn : null}
       </div>

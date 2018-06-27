@@ -1,16 +1,18 @@
 // Modals
 .Modal {
-  position: fixed;
+  position: absolute;
   z-index: 500;
   background-color: #fff;
-  width: 60%;
-  height: 75%;
+  min-width: 450px;
+  max-width: 60%;
+  min-height: 70%;
   overflow: scroll;
   border: 1px solid rgb(29, 29, 29);
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  left: 20%;
-  top: 15%;
+  left: 30%;
+  top: 16%;
+  // transform: translate(-50%, -50%);
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
@@ -45,10 +47,33 @@
 
 // PollListItem
 .PollListItem {
+  .list-group-item {
+    width: 70%;
+    margin: 10px auto;
+    background-color: rgb(255, 220, 155);
+    box-shadow: 1px 2px 2px grey;
+    font-weight: 300;
+  }
+
   button {
     float: right;
     cursor: pointer;
     margin: 0 5px;
+    border-bottom: 1.5px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    background-color: transparent;
+    transition: 0.3s all;
+    padding: 2px 8px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      border-bottom: 1.5px solid rgba(47, 63, 92, 0.8);
+    }
   }
 }
 
@@ -70,7 +95,7 @@
 .loader {
   color: #61c7d4;
   font-size: 20px;
-  margin: 100px auto;
+  margin: 200px auto;
   width: 1em;
   height: 1em;
   border-radius: 50%;
