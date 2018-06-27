@@ -10,6 +10,8 @@ export const fetchAllPolls = data => {
 
 // fetch all polls
 export const onFetchAllPolls = () => dispatch => {
+  dispatch({ type: actionTypes.ON_LOADING });
+
   axios
     .get('/api/polls/all')
     .then(res => dispatch(fetchAllPolls(res.data)))
@@ -18,6 +20,8 @@ export const onFetchAllPolls = () => dispatch => {
 
 // fetch all poll made by current user
 export const onFetchUserPolls = () => dispatch => {
+  dispatch({ type: actionTypes.ON_LOADING });
+
   axios
     .get('/api/polls/user')
     .then(res => {

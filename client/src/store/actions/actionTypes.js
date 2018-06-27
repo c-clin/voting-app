@@ -8,3 +8,4 @@ export const TURN_OFF_MODAL = 'TURN_OFF_MODAL';
 export const TURN_ON_MODAL = 'TURN_ON_MODAL';
 
 export const ON_ERROR = 'ON_ERROR';
+export const ON_LOADING = 'ON_LOADING';

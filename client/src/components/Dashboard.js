@@ -35,9 +35,9 @@ export class Dashboard extends Component {
 
   render() {
     const userPolls = this.props.userPolls;
-    let renderContent;
+    let userPollItem;
     if (userPolls) {
-      renderContent = userPolls.map(poll => {
+      userPollItem = userPolls.map(poll => {
         return (
           <UserPollListItem
             id={userPolls.indexOf(poll)}
@@ -62,24 +62,30 @@ export class Dashboard extends Component {
       );
     }
 
-    return (
-      <div className="Dashboard">
-        <h1>All Polls</h1>
-        <ListGroup flush onClick={this.listClickHandler}>
-          {renderContent}
-        </ListGroup>
-        <Modal show={this.props.modalShow}>
-          {this.state.command === 'view' ? chart : del}
-        </Modal>
-      </div>
-    );
+    let dashboardContent;
+    this.props.loading
+      ? (dashboardContent = <div className="loader">Loading...</div>)
+      : (dashboardContent = (
+          <div className="Dashboard">
+            <h1>My Polls</h1>
+            <ListGroup flush onClick={this.listClickHandler}>
+              {userPollItem}
+            </ListGroup>
+            <Modal show={this.props.modalShow}>
+              {this.state.command === 'view' ? chart : del}
+            </Modal>
+          </div>
+        ));
+
+    return dashboardContent;
   }
 }
 
 const mapStateToProps = state => {
   return {
     userPolls: state.poll.userPolls,
-    modalShow: state.poll.modalShow
+    modalShow: state.poll.modalShow,
+    loading: state.poll.loading
   };
 };
 

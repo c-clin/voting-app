@@ -5,6 +5,7 @@ const initialState = {
   userPolls: null,
   modalShow: false,
   voteSubmitted: false,
+  loading: false,
   error: false
 };
 
@@ -14,13 +15,15 @@ export default function(state = initialState, action) {
       return {
         ...state,
         allPolls: action.allPolls,
-        error: false
+        error: false,
+        loading: false
       };
     case actionTypes.FETCH_USER_POLLS:
       return {
         ...state,
         userPolls: action.userPolls,
-        error: false
+        error: false,
+        loading: false
       };
     case actionTypes.TURN_ON_MODAL:
       return {
@@ -45,6 +48,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: action.payload
+      };
+    case actionTypes.ON_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

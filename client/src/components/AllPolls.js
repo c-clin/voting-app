@@ -14,7 +14,7 @@ export class AllPolls extends Component {
     command: null
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.onFetchAllPolls();
   };
 
@@ -31,9 +31,9 @@ export class AllPolls extends Component {
 
   render() {
     const polls = this.props.polls;
-    let allPollsContent;
+    let pollsListItem;
     if (polls) {
-      allPollsContent = polls.map(poll => {
+      pollsListItem = polls.map(poll => {
         return (
           <PollListItem
             id={polls.indexOf(poll)}
@@ -57,18 +57,24 @@ export class AllPolls extends Component {
       </p>
     );
 
-    return (
-      <div>
-        <h1>All Polls</h1>
-        {this.props.auth ? null : authMsg}
-        <ListGroup flush onClick={this.listClickHandler}>
-          {allPollsContent}
-        </ListGroup>
-        <Modal show={this.props.modalShow}>
-          {this.state.command === 'view' ? chart : vote}
-        </Modal>
-      </div>
-    );
+    let allPollsContent;
+
+    this.props.loading
+      ? (allPollsContent = <div className="loader">Loading...</div>)
+      : (allPollsContent = (
+          <div>
+            <h1>All Polls</h1>
+            {this.props.auth ? null : authMsg}
+            <ListGroup flush onClick={this.listClickHandler}>
+              {pollsListItem}
+            </ListGroup>
+            <Modal show={this.props.modalShow}>
+              {this.state.command === 'view' ? chart : vote}
+            </Modal>
+          </div>
+        ));
+
+    return allPollsContent;
   }
 }
 
@@ -76,7 +82,8 @@ const mapStateToProps = state => {
   return {
     auth: state.auth.auth,
     polls: state.poll.allPolls,
-    modalShow: state.poll.modalShow
+    modalShow: state.poll.modalShow,
+    loading: state.poll.loading
   };
 };
 
