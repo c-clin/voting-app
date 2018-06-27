@@ -20,6 +20,14 @@
   .Login .login-item img:hover {
     cursor: pointer; }
 
+.Dashboard .delete-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+  .Dashboard .delete-box button {
+    margin-top: 20px; }
+
 .Modal {
   position: fixed;
   z-index: 500;
@@ -49,15 +57,17 @@
   top: 0;
   background-color: rgba(0, 0, 0, 0.7); }
 
-.Modal div.chartjs-size-monitor canvas.chartjs-render-monitor {
+.DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
   width: 300px; }
+
+.DonutChart h3 {
+  text-align: center; }
 
 .PollListItem button {
   float: right; }
 
 .Vote {
   text-align: left;
-  /* padding: 30px; */
   position: absolute;
   left: 50%;
   top: 50%;

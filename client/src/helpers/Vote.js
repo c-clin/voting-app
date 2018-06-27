@@ -37,7 +37,11 @@ export class Vote extends Component {
             <Col sm={10}>{renderOptions}</Col>
           </FormGroup>
           <Col sm={{ size: 10, offset: 2 }}>
-            <Button onClick={this.submitVoteHandler}>Submit Vote</Button>
+            {this.props.voteSubmitted ? (
+              <p>Vote Submitted!</p>
+            ) : (
+              <Button onClick={this.submitVoteHandler}>Submit Vote</Button>
+            )}
           </Col>
         </Form>
       </div>
@@ -45,7 +49,13 @@ export class Vote extends Component {
   }
 }
 
+const mapPropsToState = state => {
+  return {
+    voteSubmitted: state.poll.voteSubmitted
+  };
+};
+
 export default connect(
-  null,
+  mapPropsToState,
   actions
 )(Vote);

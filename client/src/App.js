@@ -8,6 +8,8 @@ import Header from './components/Header';
 import NewPoll from './components/NewPoll';
 import AllPolls from './components/AllPolls';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+
 // testing purpose
 import axios from 'axios';
 window.axios = axios;
@@ -24,6 +26,7 @@ class App extends Component {
         <Route exact path="/new-poll" component={NewPoll} />
         <Route exact path="/all-polls" component={AllPolls} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     );
   }

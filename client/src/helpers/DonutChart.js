@@ -23,14 +23,17 @@ const DonutChart = props => {
   };
 
   return (
-    <Doughnut
-      data={data}
-      width={20}
-      height={20}
-      options={{
-        maintainAspectRatio: false
-      }}
-    />
+    <div className="DonutChart">
+      <h3>{props.poll.question}</h3>
+      <Doughnut
+        data={data}
+        width={190}
+        height={190}
+        options={{
+          maintainAspectRatio: false
+        }}
+      />
+    </div>
   );
 };
 

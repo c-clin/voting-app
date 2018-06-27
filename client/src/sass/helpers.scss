@@ -34,8 +34,12 @@
 }
 
 // Donut Chart
-.Modal div.chartjs-size-monitor canvas.chartjs-render-monitor {
+.DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
   width: 300px;
+}
+
+.DonutChart h3 {
+  text-align: center;
 }
 
 // PollListItem
@@ -48,7 +52,6 @@
 // Vote
 .Vote {
   text-align: left;
-  /* padding: 30px; */
   position: absolute;
   left: 50%;
   top: 50%;

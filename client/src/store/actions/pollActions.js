@@ -16,6 +16,19 @@ export const onFetchAllPolls = () => dispatch => {
     .catch(e => console.log(e));
 };
 
+// fetch all poll made by current user
+export const onFetchUserPolls = () => dispatch => {
+  axios
+    .get('/api/polls/user')
+    .then(res => {
+      dispatch({
+        type: actionTypes.FETCH_USER_POLLS,
+        userPolls: res.data
+      });
+    })
+    .catch(e => console.log(e));
+};
+
 // create new poll
 export const createNewPoll = pollData => dispatch => {
   console.log('actions', pollData);
@@ -37,6 +50,29 @@ export const onVotePoll = (data, selection) => dispatch => {
 
   axios
     .post('/api/polls/vote', pollData)
-    .then(res => dispatch(onFetchAllPolls()))
+    .then(res => {
+      dispatch(onFetchAllPolls());
+      dispatch({
+        type: actionTypes.SUBMIT_VOTE
+      });
+    })
+    .catch(e => console.log(e));
+};
+
+// delete a poll
+export const onDeletePoll = data => dispatch => {
+  console.log(data);
+  const pollData = {
+    _id: data._id
+  };
+
+  axios
+    .post('/api/polls/delete', pollData)
+    .then(res => {
+      dispatch(onFetchUserPolls());
+      dispatch({
+        type: actionTypes.TURN_OFF_MODAL
+      });
+    })
     .catch(e => console.log(e));
 };
