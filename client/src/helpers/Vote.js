@@ -42,9 +42,9 @@ export class Vote extends Component {
             </legend>
             <Col sm={10}>{renderOptions}</Col>
           </FormGroup>
-          <Col sm={{ size: 10, offset: 2 }}>
+          <Col sm={{ size: 10 }}>
             {this.props.voteSubmitted ? (
-              <p>Vote Submitted!</p>
+              <p style={{ color: '#5c9d40' }}>Vote Submitted!</p>
             ) : (
               <Button onClick={this.submitVoteHandler} color="info">
                 Submit Vote

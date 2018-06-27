@@ -59,9 +59,6 @@ export class Dashboard extends Component {
           <Button onClick={this.deletePollHandler} color="danger">
             Yes
           </Button>
-          <Button onClick={() => this.props.modalOff()} color="info">
-            No
-          </Button>
         </div>
       );
     }

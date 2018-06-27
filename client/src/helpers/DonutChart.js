@@ -37,6 +37,7 @@ const DonutChart = props => {
   return (
     <div className="DonutChart">
       <h3>{props.poll.question}</h3>
+      <hr />
       <Doughnut
         data={data}
         width={50}

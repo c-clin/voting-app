@@ -8,11 +8,12 @@ const PollListItem = props => {
     <div className="PollListItem">
       <div href="#" id={props.id} className="list-group-item">
         {props.question}
-        <button name="Delete" onClick={props.modalOn}>
-          Delete
-        </button>
+        <hr />
         <button name="view" onClick={props.modalOn}>
-          View
+          View &nbsp;<i className="fa fa-line-chart" aria-hidden="true" />
+        </button>
+        <button name="Delete" onClick={props.modalOn}>
+          Delete &nbsp;<i className="fa fa-trash-o" aria-hidden="true" />
         </button>
       </div>
     </div>

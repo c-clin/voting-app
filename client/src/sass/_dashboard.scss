@@ -1,11 +1,15 @@
+@import 'variables';
+
 .Dashboard {
   padding-top: 80px;
+  padding-bottom: 40px;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: beige;
+  background-size: cover;
+  background-color: $primary-bg-color;
 
   h1 {
     text-align: center;
@@ -21,9 +25,10 @@
     color: red;
 
     & button {
+      display: block;
       cursor: pointer;
-      margin-top: 20px;
-      margin-right: 3px;
+      width: 80px;
+      margin: 20px auto;
     }
   }
 }

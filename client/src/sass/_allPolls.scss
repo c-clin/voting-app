@@ -1,15 +1,22 @@
+@import 'variables';
 .AllPolls {
   padding-top: 80px;
-  position: absolute;
+  padding-bottom: 40px;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(240, 240, 215);
+  background-color: $primary-bg-color;
 
   h1 {
     text-align: center;
     color: #636363;
+    font-weight: 300;
+  }
+
+  .auth-msg {
+    text-align: center;
     font-weight: 300;
   }
 }

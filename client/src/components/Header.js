@@ -41,7 +41,7 @@ export class Header extends React.Component {
             <Link to="/new-poll">New Poll</Link>
           </DropdownItem>
           <DropdownItem>
-            <Link to="/dashboard">Your Polls</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </DropdownItem>
           <DropdownItem divider />
           <DropdownItem>

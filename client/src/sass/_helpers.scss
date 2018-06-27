@@ -5,7 +5,7 @@
   background-color: #fff;
   min-width: 450px;
   max-width: 60%;
-  min-height: 70%;
+  min-height: 400px;
   overflow: scroll;
   border: 1px solid rgb(29, 29, 29);
   box-shadow: 1px 1px 1px black;
@@ -43,22 +43,26 @@
 
 .DonutChart h3 {
   text-align: center;
+  font-weight: 300;
+  color: #424242;
 }
 
 // PollListItem
 .PollListItem {
+  margin: 3px;
   .list-group-item {
-    width: 70%;
+    width: 50%;
+    min-height: 85px;
+    overflow: scroll;
     margin: 10px auto;
     background-color: rgba(60, 85, 131, 0.85);
     box-shadow: 1px 2px 2px grey;
     font-weight: 300;
     color: white;
-    // text-shadow: 1px 1px 2px rgb(58, 58, 58);
+    text-align: center;
   }
 
   button {
-    float: right;
     cursor: pointer;
     margin: 0 5px;
     border-radius: 4px;
@@ -67,7 +71,7 @@
     transition: 0.3s all;
     padding: 2px 10px;
     font-weight: 300;
-    color: rgb(255, 224, 205);
+    color: #ffd6b0;
 
     &:focus {
       outline: none;
@@ -77,7 +81,7 @@
       border-radius: 50px;
       border: 1px solid #fff;
       color: #fff;
-      background-color: rgba(194, 194, 194, 0.452);
+      background-color: rgba(131, 131, 131, 0.5);
     }
   }
 }
@@ -89,6 +93,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  font-weight: 300;
 
   .err-msg {
     color: #ff0000;

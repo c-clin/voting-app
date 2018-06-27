@@ -5,10 +5,14 @@
 @import 'helpers';
 @import 'landing';
 @import 'allPolls';
+@import 'variables';
 
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  background-color: beige;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-clip: $primary-bg-color;
 }

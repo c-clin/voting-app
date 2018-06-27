@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../store/actions/actionTypes';
-
 const PollListItem = props => {
   const voteBtn = (
-    <button name="vote" onClick={props.modalOn}>
+    <button name="vote">
       Vote&nbsp; <i className="fa fa-hand-o-left" aria-hidden="true" />
     </button>
   );
@@ -14,30 +12,36 @@ const PollListItem = props => {
     <div className="PollListItem">
       <div href="#" id={props.id} className="list-group-item">
         {props.question}
-
-        <button name="view" onClick={props.modalOn}>
-          View &nbsp;<i className="fa fa-line-chart" aria-hidden="true" />
-        </button>
-        {props.auth ? voteBtn : null}
+        <hr />
+        <div style={{ textAlign: 'center' }}>
+          <button name="view" onClick={props.modalOn}>
+            View &nbsp;<i className="fa fa-line-chart" aria-hidden="true" />
+          </button>
+          {props.auth ? voteBtn : null}
+        </div>
       </div>
     </div>
   );
 };
 
+//   return (
+//     <div className="PollListItem">
+//       <div href="#" id={props.id} className="list-group-item">
+//         {props.question}
+//         <br />
+//         <button name="view">
+//           View &nbsp;<i className="fa fa-line-chart" aria-hidden="true" />
+//         </button>
+//         {props.auth ? voteBtn : null}
+//       </div>
+//     </div>
+//   );
+// };
+
 const mapStateToProps = state => {
   return {
-    auth: state.auth.auth,
-    modalShow: state.poll.modalShow
+    auth: state.auth.auth
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    modalOn: () => dispatch({ type: actionTypes.TURN_ON_MODAL })
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PollListItem);
+export default connect(mapStateToProps)(PollListItem);
