@@ -9,12 +9,19 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(111, 225, 245, 0.6),
+      rgba(255, 209, 148, 0.6)
+    ),
+    url(./assets/dashboard.png);
   background-size: cover;
-  background-color: $primary-bg-color;
+  background-position: top;
+  // background-color: $primary-bg-color;
 
   h1 {
     text-align: center;
-    color: #636363;
+    color: #727272;
     font-weight: 300;
   }
 

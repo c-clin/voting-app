@@ -48,11 +48,12 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background-image: linear-gradient(to top, rgba(111, 225, 245, 0.6), rgba(255, 209, 148, 0.6)), url(./assets/dashboard.png);
   background-size: cover;
-  background-color: #fff7e0; }
+  background-position: top; }
   .Dashboard h1 {
     text-align: center;
-    color: #636363;
+    color: #727272;
     font-weight: 300; }
   .Dashboard .delete-box {
     position: absolute;
@@ -132,11 +133,11 @@
 .PollListItem {
   margin: 3px; }
   .PollListItem .list-group-item {
-    width: 50%;
+    width: 40%;
     min-height: 85px;
     overflow: scroll;
     margin: 10px auto;
-    background-color: rgba(60, 85, 131, 0.85);
+    background-color: rgba(60, 85, 131, 0.7);
     box-shadow: 1px 2px 2px grey;
     font-weight: 300;
     color: white;
@@ -290,7 +291,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fff7e0; }
+  background-image: linear-gradient(to right, rgba(217, 167, 199, 0.55), rgba(255, 252, 220, 0.55)), url(./assets/community.png);
+  background-size: cover;
+  background-position: top; }
   .AllPolls h1 {
     text-align: center;
     color: #636363;

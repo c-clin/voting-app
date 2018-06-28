@@ -8,7 +8,17 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: $primary-bg-color;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(217, 167, 199, 0.55),
+      rgba(255, 252, 220, 0.55)
+    ),
+    url(./assets/community.png);
+
+  background-size: cover;
+  background-position: top;
+  // background-color: $primary-bg-color;
 
   h1 {
     text-align: center;
