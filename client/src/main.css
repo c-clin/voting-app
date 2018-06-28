@@ -9,6 +9,8 @@
   .Header .navbar a,
   .Header .navbar .nav-link {
     color: #e7e7e7 !important; }
+  .Header .navbar .navbar-toggler-icon:focus {
+    outline: none; }
 
 .Header .navbar-brand {
   font-family: 'Fredericka the Great', cursive;
@@ -88,6 +90,9 @@
     border: 1px solid grey;
     box-shadow: 1px 3px 3px #b1b1b1;
     font-weight: 300; }
+    @media screen and (max-width: 680px) {
+      .NewPoll form {
+        width: 85%; } }
   .NewPoll .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -133,15 +138,22 @@
 .PollListItem {
   margin: 3px; }
   .PollListItem .list-group-item {
-    width: 40%;
+    max-width: 500px;
     min-height: 85px;
-    overflow: scroll;
     margin: 10px auto;
     background-color: rgba(60, 85, 131, 0.7);
-    box-shadow: 1px 2px 2px grey;
+    box-shadow: 1px 2px 10px grey;
     font-weight: 300;
     color: white;
-    text-align: center; }
+    text-align: center;
+    border-radius: 6px !important;
+    transition: all 0.3s ease; }
+    .PollListItem .list-group-item:hover {
+      box-shadow: 1px 2px 15px #5f5f5f;
+      transform: translateY(-2px) scale(1.05); }
+    @media screen and (max-width: 680px) {
+      .PollListItem .list-group-item {
+        max-width: 80%; } }
   .PollListItem button {
     cursor: pointer;
     margin: 0 5px;
@@ -157,7 +169,7 @@
     .PollListItem button:hover {
       border-radius: 50px;
       border: 1px solid #fff;
-      color: #fdff71;
+      color: #fffab1;
       background-color: rgba(131, 131, 131, 0.5); }
 
 .Vote {
@@ -237,16 +249,36 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: white; }
+    @media screen and (max-width: 450px) {
+      .Landing .text-box {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding-top: 150px; } }
     .Landing .text-box .heading-main {
       font-family: 'Fredericka the Great', cursive;
       text-shadow: 1px 2px 2px #313131;
       display: block;
       font-size: 1.9em;
-      font-weight: 400; }
+      font-weight: 400;
+      transition: all 0.3s ease; }
+      .Landing .text-box .heading-main:hover {
+        transform: scale(1.05) translateY(-2px);
+        text-shadow: 1px 3px 10px #2c2c2c; }
+      @media screen and (max-width: 680px) {
+        .Landing .text-box .heading-main {
+          font-size: 1.2em; } }
     .Landing .text-box .heading-sub {
       display: block;
       font-size: 0.6em;
-      font-weight: 200; }
+      font-weight: 200;
+      transition: all 0.3s ease; }
+      .Landing .text-box .heading-sub:hover {
+        transform: skewY(2deg) skewX(5deg) translateY(3px); }
+      @media screen and (max-width: 680px) {
+        .Landing .text-box .heading-sub {
+          font-size: 0.3em; } }
   .Landing .btn {
     text-transform: uppercase;
     text-decoration: none;
@@ -255,6 +287,9 @@
     border-radius: 100px;
     transition: all 0.2s;
     position: relative; }
+    @media screen and (max-width: 680px) {
+      .Landing .btn {
+        padding: 10px 30px; } }
     .Landing .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
@@ -297,7 +332,8 @@
   .AllPolls h1 {
     text-align: center;
     color: #636363;
-    font-weight: 300; }
+    font-weight: 300;
+    transition: all 0.3s ease; }
   .AllPolls .auth-msg {
     text-align: center;
     font-weight: 300; }

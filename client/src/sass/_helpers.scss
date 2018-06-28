@@ -43,16 +43,27 @@
 // PollListItem
 .PollListItem {
   margin: 3px;
+
   .list-group-item {
-    width: 40%;
+    max-width: 500px;
     min-height: 85px;
-    overflow: scroll;
     margin: 10px auto;
     background-color: rgba(60, 85, 131, 0.7);
-    box-shadow: 1px 2px 2px grey;
+    box-shadow: 1px 2px 10px grey;
     font-weight: 300;
     color: white;
     text-align: center;
+    border-radius: 6px !important;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 1px 2px 15px rgb(95, 95, 95);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    @media screen and (max-width: 680px) {
+      max-width: 80%;
+    }
   }
 
   button {
@@ -73,7 +84,7 @@
     &:hover {
       border-radius: 50px;
       border: 1px solid #fff;
-      color: rgb(253, 255, 113);
+      color: rgb(255, 250, 177);
       background-color: rgba(131, 131, 131, 0.5);
     }
   }
