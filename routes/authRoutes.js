@@ -13,7 +13,8 @@ module.exports = app => {
     '/auth/facebook/callback',
     passport.authenticate('facebook'),
     (req, res) => {
-      res.redirect('/');
+      console.log('logged in, ', req.user);
+      res.redirect('/dashboard');
     }
   );
 

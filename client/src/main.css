@@ -43,6 +43,7 @@
   padding-top: 80px;
   padding-bottom: 40px;
   position: absolute;
+  overflow: scroll;
   top: 0;
   bottom: 0;
   left: 0;
@@ -66,7 +67,8 @@
       margin: 20px auto; }
 
 .NewPoll {
-  position: relative;
+  position: absolute;
+  overflow: scroll;
   padding-bottom: 40px;
   top: 0;
   bottom: 0;
@@ -104,6 +106,7 @@
   padding: 16px;
   left: 50%;
   top: 50%;
+  background-color: #fdf7e4;
   box-sizing: border-box;
   transition: all 0.3s ease-out; }
 
@@ -120,10 +123,6 @@
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7); }
-
-.DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
-  width: 300px;
-  color: #40cfb7; }
 
 .DonutChart h3 {
   text-align: center;
@@ -157,7 +156,7 @@
     .PollListItem button:hover {
       border-radius: 50px;
       border: 1px solid #fff;
-      color: #fff;
+      color: #fdff71;
       background-color: rgba(131, 131, 131, 0.5); }
 
 .Vote {
@@ -174,7 +173,7 @@
 .loader {
   color: #61c7d4;
   font-size: 20px;
-  margin: 200px auto;
+  margin: 250px auto;
   width: 1em;
   height: 1em;
   border-radius: 50%;
@@ -285,7 +284,8 @@
 .AllPolls {
   padding-top: 80px;
   padding-bottom: 40px;
-  position: relative;
+  position: absolute;
+  overflow: scroll;
   top: 0;
   bottom: 0;
   left: 0;

@@ -2,7 +2,8 @@
 .AllPolls {
   padding-top: 80px;
   padding-bottom: 40px;
-  position: relative;
+  position: absolute;
+  overflow: scroll;
   top: 0;
   bottom: 0;
   left: 0;

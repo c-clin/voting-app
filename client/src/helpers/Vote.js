@@ -45,7 +45,7 @@ export class Vote extends Component {
           </FormGroup>
           <Col sm={{ size: 10 }}>
             {this.props.voteSubmitted ? (
-              <p style={{ color: '#5c9d40' }}>Vote Submitted!</p>
+              <p style={{ color: '#5c9d40' }}>Thanks for voting!</p>
             ) : (
               <Button onClick={this.submitVoteHandler} color="info">
                 Submit Vote

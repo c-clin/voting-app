@@ -90,7 +90,7 @@ export class NewPoll extends React.Component {
               type="text"
               name="question"
               id="examplePassword"
-              placeholder="Ex: What's the best house pet?"
+              placeholder="Ex: What's the cutest animal in the world?"
               onChange={this.inputChangeHandler}
             />
           </FormGroup>

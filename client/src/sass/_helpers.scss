@@ -4,7 +4,6 @@
   z-index: 500;
   background-color: #fff;
   width: 550px;
-  // max-width: 60%;
   min-height: 400px;
   overflow: scroll;
   border: 1px solid rgb(29, 29, 29);
@@ -12,7 +11,7 @@
   padding: 16px;
   left: 50%;
   top: 50%;
-  // transform: translate(-50%, -50%);
+  background-color: #fdf7e4;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
@@ -33,12 +32,6 @@
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
-}
-
-// Donut Chart
-.DonutChart div.chartjs-size-monitor canvas.chartjs-render-monitor {
-  width: 300px;
-  color: #40cfb7;
 }
 
 .DonutChart h3 {
@@ -80,7 +73,7 @@
     &:hover {
       border-radius: 50px;
       border: 1px solid #fff;
-      color: #fff;
+      color: rgb(253, 255, 113);
       background-color: rgba(131, 131, 131, 0.5);
     }
   }
@@ -105,7 +98,7 @@
 .loader {
   color: #61c7d4;
   font-size: 20px;
-  margin: 200px auto;
+  margin: 250px auto;
   width: 1em;
   height: 1em;
   border-radius: 50%;

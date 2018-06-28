@@ -1,7 +1,8 @@
 @import 'variables';
 
 .NewPoll {
-  position: relative;
+  position: absolute;
+  overflow: scroll;
   padding-bottom: 40px;
   top: 0;
   bottom: 0;
