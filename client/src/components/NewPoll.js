@@ -26,7 +26,7 @@ export class NewPoll extends React.Component {
   };
 
   submitPoll = () => {
-    let valid = false;
+    let invalid = true;
     if (_.isEmpty(this.state.question)) {
       this.props.onError('The question cannot be empty.');
       return;
@@ -42,16 +42,21 @@ export class NewPoll extends React.Component {
     _.forEach(answers, ({ answer }) => {
       if (!answer) {
         this.props.onError('The answers cannot be empty.');
+        invalid = true;
         return false;
+      } else {
+        invalid = false;
       }
     });
 
-    const pollData = {
-      question: this.state.question,
-      answers: answers
-    };
+    if (!invalid) {
+      const pollData = {
+        question: this.state.question,
+        answers: answers
+      };
 
-    this.props.createNewPoll(pollData, this.props.history);
+      this.props.createNewPoll(pollData, this.props.history);
+    }
   };
 
   render() {

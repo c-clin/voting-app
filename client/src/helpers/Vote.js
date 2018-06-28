@@ -39,6 +39,7 @@ export class Vote extends Component {
           <FormGroup tag="fieldset" row>
             <legend className="col-form-labelk">
               {this.props.poll.question}
+              <hr />
             </legend>
             <Col sm={10}>{renderOptions}</Col>
           </FormGroup>

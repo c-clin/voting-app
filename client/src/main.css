@@ -93,18 +93,17 @@
     color: red; }
 
 .Modal {
-  position: absolute;
+  position: fixed;
   z-index: 500;
   background-color: #fff;
-  min-width: 450px;
-  max-width: 60%;
+  width: 550px;
   min-height: 400px;
   overflow: scroll;
   border: 1px solid #1d1d1d;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  left: 30%;
-  top: 16%;
+  left: 50%;
+  top: 50%;
   box-sizing: border-box;
   transition: all 0.3s ease-out; }
 

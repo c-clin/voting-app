@@ -1,17 +1,17 @@
 // Modals
 .Modal {
-  position: absolute;
+  position: fixed;
   z-index: 500;
   background-color: #fff;
-  min-width: 450px;
-  max-width: 60%;
+  width: 550px;
+  // max-width: 60%;
   min-height: 400px;
   overflow: scroll;
   border: 1px solid rgb(29, 29, 29);
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  left: 30%;
-  top: 16%;
+  left: 50%;
+  top: 50%;
   // transform: translate(-50%, -50%);
   box-sizing: border-box;
   transition: all 0.3s ease-out;

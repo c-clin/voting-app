@@ -19,13 +19,16 @@ export class Dashboard extends Component {
   };
 
   listClickHandler = e => {
-    console.log(e.target.parentNode.id);
     console.log(e.target.name);
     this.setState({ chartId: e.target.parentNode.id });
     if (e.target.name === 'view') {
       this.setState({ command: 'view' });
-    } else {
+      this.props.modalOn();
+    } else if (e.target.name === 'delete') {
       this.setState({ command: 'delete' });
+      this.props.modalOn();
+    } else {
+      return;
     }
   };
 
@@ -92,7 +95,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    modalOff: () => dispatch({ type: actionTypes.TURN_OFF_MODAL }),
+    modalOn: () => dispatch({ type: actionTypes.TURN_ON_MODAL }),
     loadPolls: () => dispatch(actions.onFetchUserPolls()),
     deletePoll: data => dispatch(actions.onDeletePoll(data))
   };
