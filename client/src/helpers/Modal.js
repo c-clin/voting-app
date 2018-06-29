@@ -18,8 +18,8 @@ class Modal extends Component {
           className="Modal"
           style={{
             transform: this.props.show
-              ? 'translateY(0) translate(-50%, -50%)'
-              : 'translateY(-200vh)',
+              ? 'translate(-50%, -50%)'
+              : 'translate(-50%, -300%)',
             opacity: this.props.show ? 1 : 0
           }}
         >
