@@ -21,7 +21,8 @@ passport.use(
         if (user) {
           return done(null, user);
         } else {
-          new User({ userID: profile.id })
+          const name = profile.name.givenName + ' ' + profile.name.familyName;
+          new User({ userID: profile.id, name })
             .save()
             .then(user => done(null, user));
         }
@@ -43,7 +44,8 @@ passport.use(
         if (user) {
           return done(null, user);
         } else {
-          new User({ userID: profile.id })
+          const name = profile.name.givenName + ' ' + profile.name.familyName;
+          new User({ userID: profile.id, name })
             .save()
             .then(user => done(null, user));
         }

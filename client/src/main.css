@@ -28,19 +28,50 @@
     .Header .dropdown-menu .dropdown-item:hover a:hover {
       text-decoration: none; }
 
-.Login {
-  border: 1px solid grey;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  vertical-align: center;
-  text-align: center;
-  margin-top: 200px;
-  box-shadow: 2px 2px 2px #686868; }
-  .Login .login-item {
-    margin: 10px; }
-  .Login .login-item img:hover {
+.Login,
+.Register {
+  max-width: 500px;
+  padding: 50px 30px;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
+  background-color: #f7f7f7;
+  width: 400px; }
+  .Login__form,
+  .Register__form {
+    margin-bottom: 50px; }
+    .Login__form div,
+    .Register__form div {
+      text-align: center; }
+    .Login__form--label,
+    .Register__form--label {
+      display: none; }
+    .Login__form--input,
+    .Register__form--input {
+      border: none;
+      background-color: #f7f7f7;
+      border-bottom: 1px solid grey;
+      height: 40px;
+      width: 250px; }
+      .Login__form--input::placeholder,
+      .Register__form--input::placeholder {
+        text-transform: uppercase;
+        font-weight: 300; }
+      .Login__form--input:focus,
+      .Register__form--input:focus {
+        outline: none; }
+  .Login__or,
+  .Register__or {
+    text-align: center; }
+  .Login .login-item,
+  .Register .login-item {
+    margin: 10px;
+    text-align: center; }
+  .Login .login-item img:hover,
+  .Register .login-item img:hover {
     cursor: pointer; }
+
+.register-btn {
+  margin-top: 3rem;
+  float: right; }
 
 .Dashboard {
   padding-top: 80px;
@@ -338,11 +369,19 @@
     text-align: center;
     font-weight: 300; }
 
-html,
+.Signin {
+  display: flex;
+  margin-top: 180px;
+  justify-content: space-between;
+  margin: 230px 10rem 3rem 10rem; }
+
+html {
+  box-sizing: border-box; }
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  min-width: 100vw;
-  min-height: 100vh;
-  background-clip: #fff7e0; }
+  width: 100%;
+  height: 100%;
+  background-color: #fff7e0 !important; }

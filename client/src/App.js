@@ -10,6 +10,8 @@ import AllPolls from './components/AllPolls';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Landing from './components/Landing';
+import Register from './components/Register';
+import Signin from './components/Signin';
 
 // testing purpose
 import axios from 'axios';
@@ -28,7 +30,9 @@ class App extends Component {
         <Route exact path="/all-polls" component={AllPolls} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Landing} />
+        <Route exact path="/signin" component={Signin} />
       </div>
     );
   }

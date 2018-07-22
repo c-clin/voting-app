@@ -13,9 +13,6 @@ module.exports = app => {
     });
   });
 
-  // @route   Post api/polls/user
-  // @desc    Get all polls made by the current user
-  // access   Private
   app.get('/api/polls/user', (req, res) => {
     Poll.find({ _user: req.user.id }).then(polls => {
       res.send(polls);

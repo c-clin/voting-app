@@ -1,12 +1,21 @@
 import React from 'react';
-import facebookBtn from '../assets/facebook-btn.png';
-import googleBtn from '../assets/google-btn.png';
 
-const Login = () => {
+const Register = () => {
   return (
-    <div className="Login">
-      <h3>Login</h3>
+    <div className="Register">
+      <h3>Register</h3>
       <form action="#" className="Login__form">
+        <div>
+          <label for="name" className="Login__form--label">
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="Login__form--input"
+            placeholder="Name"
+          />
+        </div>
         <div>
           <label for="email" className="Login__form--label">
             Email:
@@ -29,20 +38,10 @@ const Login = () => {
             placeholder="Password"
           />
         </div>
+        <button className="register-btn btn btn-info">Register Now</button>
       </form>
-      <p className="Login__or">or</p>
-      <div className="login-item">
-        <a href="/auth/facebook">
-          <img src={facebookBtn} width="200" alt="login with facebook" />
-        </a>
-      </div>
-      <div className="login-item">
-        <a href="/auth/google">
-          <img src={googleBtn} width="200" alt="login with google" />
-        </a>
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
