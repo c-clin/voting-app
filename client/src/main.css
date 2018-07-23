@@ -9,6 +9,7 @@
   box-shadow: 0px 0.5px 15px #3a3a3a; }
   .Header .navbar a,
   .Header .navbar .nav-link {
+    font-weight: 300;
     color: #e7e7e7 !important; }
   .Header .navbar .navbar-toggler-icon:focus {
     outline: none; }
@@ -26,6 +27,8 @@
     outline: none; }
     .Header .dropdown-menu .dropdown-item:focus a:hover,
     .Header .dropdown-menu .dropdown-item:hover a:hover {
+      font-weight: 300;
+      cursor: pointer;
       text-decoration: none; }
 
 .Login,
@@ -34,7 +37,14 @@
   padding: 50px 30px;
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
   background-color: #f7f7f7;
-  width: 400px; }
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .Login .registeredMsg,
+  .Register .registeredMsg {
+    color: #3f963f; }
   .Login__form,
   .Register__form {
     margin-bottom: 50px; }
@@ -58,6 +68,10 @@
       .Login__form--input:focus,
       .Register__form--input:focus {
         outline: none; }
+  .Login p,
+  .Register p {
+    margin-top: 6rem;
+    font-weight: 300; }
   .Login__or,
   .Register__or {
     text-align: center; }
@@ -70,12 +84,11 @@
     cursor: pointer; }
 
 .register-btn {
-  margin-top: 3rem;
+  margin-top: 2rem;
   float: right; }
 
 .Dashboard {
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding: 6rem 4rem 4rem 4rem;
   position: absolute;
   overflow-y: scroll;
   top: 0;
@@ -87,8 +100,8 @@
   background-position: top; }
   .Dashboard h1 {
     text-align: center;
-    color: #727272;
-    font-weight: 300; }
+    margin: 1rem auto 2rem auto;
+    font-family: 'Fredericka the Great', cursive; }
   .Dashboard .delete-box {
     position: absolute;
     left: 50%;
@@ -116,11 +129,10 @@
   .NewPoll form {
     background-color: #fff;
     max-width: 600px;
-    margin: 10px auto;
+    margin: 3rem auto;
     padding: 30px 45px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    box-shadow: 1px 3px 3px #b1b1b1;
+    border-radius: 3px;
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
     font-weight: 300; }
     @media screen and (max-width: 680px) {
       .NewPoll form {
@@ -147,11 +159,6 @@
   box-sizing: border-box;
   transition: all 0.3s ease-out; }
 
-@media (max-width: 700px) {
-  .Modal {
-    width: 75%;
-    left: 13%; } }
-
 .Backdrop {
   width: 100%;
   height: 100%;
@@ -167,7 +174,9 @@
   color: #424242; }
 
 .PollListItem {
-  margin: 3px; }
+  margin: 3px;
+  width: 400px;
+  min-height: 150px; }
   .PollListItem .list-group-item {
     max-width: 500px;
     min-height: 85px;
@@ -199,9 +208,9 @@
       outline: none; }
     .PollListItem button:hover {
       border-radius: 50px;
-      border: 1px solid #fff;
-      color: #fffab1;
-      background-color: rgba(131, 131, 131, 0.5); }
+      border: 1px solid #ffd6b0;
+      color: #606b8b;
+      background-color: #ffd6b0; }
 
 .Vote {
   text-align: left;
@@ -357,23 +366,21 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: linear-gradient(to right, rgba(217, 167, 199, 0.55), rgba(255, 252, 220, 0.55)), url(./assets/community.png);
+  background-image: linear-gradient(to right bottom, rgba(217, 167, 199, 0.55), rgba(255, 252, 220, 0.55)), url(./assets/community.png);
   background-size: cover;
   background-position: top; }
   .AllPolls h1 {
     text-align: center;
-    color: #636363;
-    font-weight: 300;
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+    margin: 1rem auto 2rem auto;
+    font-family: 'Fredericka the Great', cursive; }
   .AllPolls .auth-msg {
     text-align: center;
     font-weight: 300; }
-
-.Signin {
-  display: flex;
-  margin-top: 180px;
-  justify-content: space-between;
-  margin: 230px 10rem 3rem 10rem; }
+  .AllPolls .list-group {
+    justify-content: space-around;
+    flex-direction: row !important;
+    flex-wrap: wrap; }
 
 html {
   box-sizing: border-box; }

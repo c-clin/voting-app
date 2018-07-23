@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'header';
 @import 'login';
 @import 'dashboard';
@@ -5,8 +6,6 @@
 @import 'helpers';
 @import 'landing';
 @import 'allPolls';
-@import 'variables';
-@import 'signin';
 
 html {
   box-sizing: border-box;

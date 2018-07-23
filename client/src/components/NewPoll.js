@@ -52,7 +52,8 @@ export class NewPoll extends React.Component {
     if (!invalid) {
       const pollData = {
         question: this.state.question,
-        answers: answers
+        answers: answers,
+        name: this.props.name
       };
 
       this.props.createNewPoll(pollData, this.props.history);
@@ -122,7 +123,8 @@ export class NewPoll extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.poll.error
+    error: state.poll.error,
+    name: state.auth.auth.name
   };
 };
 

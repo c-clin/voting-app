@@ -1,48 +1,90 @@
-import React from 'react';
-import facebookBtn from '../assets/facebook-btn.png';
-import googleBtn from '../assets/google-btn.png';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 
-const Login = () => {
-  return (
-    <div className="Login">
-      <h3>Login</h3>
-      <form action="#" className="Login__form">
-        <div>
-          <label for="email" className="Login__form--label">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="Login__form--input"
-            placeholder="Email"
-          />
+// import facebookBtn from '../assets/facebook-btn.png';
+// import googleBtn from '../assets/google-btn.png';
+
+export class Login extends Component {
+  state = {
+    email: '',
+    password: ''
+  };
+
+  loginUser = e => {
+    e.preventDefault();
+
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(userData, this.props.history);
+  };
+
+  inputChangeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  render() {
+    const registeredMsg = this.props.registered ? (
+      <p className="registeredMsg">You are registered! Please log in.</p>
+    ) : null;
+
+    return (
+      <div className="Login">
+        <h3>Login</h3>
+        {registeredMsg}
+        <form action="#" className="Login__form" onSubmit={this.loginUser}>
+          <div>
+            <input
+              type="email"
+              className="Login__form--input"
+              placeholder="Email"
+              name="email"
+              value={this.state.email}
+              onChange={this.inputChangeHandler}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="Login__form--input"
+              placeholder="Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.inputChangeHandler}
+            />
+          </div>
+          <button className="register-btn btn btn-info">Login</button>
+        </form>
+        <p>
+          Don't have an account? Register for one{' '}
+          <Link to="/register">here</Link>!
+        </p>
+        {/* <p className="Login__or">or</p>
+        <div className="login-item">
+          <a href="/auth/facebook">
+            <img src={facebookBtn} width="200" alt="login with facebook" />
+          </a>
         </div>
-        <div>
-          <label for="password" className="Login__form--label">
-            Password:
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="Login__form--input"
-            placeholder="Password"
-          />
-        </div>
-      </form>
-      <p className="Login__or">or</p>
-      <div className="login-item">
-        <a href="/auth/facebook">
-          <img src={facebookBtn} width="200" alt="login with facebook" />
-        </a>
+        <div className="login-item">
+          <a href="/auth/google">
+            <img src={googleBtn} width="200" alt="login with google" />
+          </a>
+        </div> */}
       </div>
-      <div className="login-item">
-        <a href="/auth/google">
-          <img src={googleBtn} width="200" alt="login with google" />
-        </a>
-      </div>
-    </div>
-  );
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    registered: state.auth.registered
+  };
 };
 
-export default Login;
+export default connect(
+  mapStateToProps,
+  actions
+)(withRouter(Login));

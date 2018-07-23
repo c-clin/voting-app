@@ -11,16 +11,16 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Landing from './components/Landing';
 import Register from './components/Register';
-import Signin from './components/Signin';
+// import Signin from './components/Signin';
 
 // testing purpose
 import axios from 'axios';
 window.axios = axios;
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+  // componentDidMount() {
+  //   this.props.fetchUser();
+  // }
 
   render() {
     return (
@@ -32,7 +32,7 @@ class App extends Component {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Landing} />
-        <Route exact path="/signin" component={Signin} />
+        {/* <Route exact path="/signin" component={Signin} /> */}
       </div>
     );
   }

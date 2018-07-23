@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as actions from '../store/actions';
 import {
   Collapse,
   Navbar,
@@ -45,16 +46,20 @@ export class Header extends React.Component {
           </DropdownItem>
           <DropdownItem divider />
           <DropdownItem>
-            <a href="/api/logout">Logout</a>
+            <a onClick={() => this.props.logoutUser(this.props.history)}>
+              Logout
+            </a>
           </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );
 
     const guestLinks = (
-      <NavItem>
-        <NavLink href="/login">Login</NavLink>
-      </NavItem>
+      <span>
+        <NavItem>
+          <NavLink href="/login">Login</NavLink>
+        </NavItem>
+      </span>
     );
 
     return (
@@ -88,4 +93,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(withRouter(Header));
+export default connect(
+  mapStateToProps,
+  actions
+)(withRouter(Header));

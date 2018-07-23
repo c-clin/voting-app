@@ -5,6 +5,14 @@
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
   background-color: #f7f7f7;
   width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate((-50%, -50%));
+
+  .registeredMsg {
+    color: #3f963f;
+  }
 
   &__form {
     margin-bottom: 50px;
@@ -35,6 +43,11 @@
     }
   }
 
+  p {
+    margin-top: 6rem;
+    font-weight: 300;
+  }
+
   &__or {
     text-align: center;
   }
@@ -50,6 +63,6 @@
 }
 
 .register-btn {
-  margin-top: 3rem;
+  margin-top: 2rem;
   float: right;
 }

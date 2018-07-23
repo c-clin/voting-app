@@ -1,4 +1,5 @@
 export const FETCH_USER = 'FETCH_USER';
+export const USER_REGISTERED = 'USER_REGISTERED';
 
 export const FETCH_ALL_POLLS = 'FETCH_ALL_POLLS';
 export const FETCH_USER_POLLS = 'FETCH_USER_POLLS';

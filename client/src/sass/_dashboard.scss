@@ -1,8 +1,9 @@
 @import 'variables';
 
 .Dashboard {
-  padding-top: 80px;
-  padding-bottom: 40px;
+  // padding-top: 80px;
+  // padding-bottom: 40px;
+  padding: 6rem 4rem 4rem 4rem;
   position: absolute;
   overflow-y: scroll;
   top: 0;
@@ -17,12 +18,11 @@
     url(./assets/dashboard.png);
   background-size: cover;
   background-position: top;
-  // background-color: $primary-bg-color;
 
   h1 {
     text-align: center;
-    color: #727272;
-    font-weight: 300;
+    margin: 1rem auto 2rem auto;
+    font-family: 'Fredericka the Great', cursive;
   }
 
   .delete-box {

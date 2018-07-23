@@ -1,4 +1,4 @@
-export { fetchUser } from './authActions';
+export { fetchUser, registerUser, loginUser, logoutUser } from './authActions';
 
 export {
   createNewPoll,

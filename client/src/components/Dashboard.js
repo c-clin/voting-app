@@ -15,7 +15,7 @@ export class Dashboard extends Component {
   };
 
   componentDidMount = () => {
-    this.props.loadPolls();
+    this.props.loadPolls(this.props.auth.id);
   };
 
   listClickHandler = e => {
@@ -87,6 +87,7 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
   return {
+    auth: state.auth.auth,
     userPolls: state.poll.userPolls,
     modalShow: state.poll.modalShow,
     loading: state.poll.loading
@@ -96,7 +97,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     modalOn: () => dispatch({ type: actionTypes.TURN_ON_MODAL }),
-    loadPolls: () => dispatch(actions.onFetchUserPolls()),
+    loadPolls: id => dispatch(actions.onFetchUserPolls(id)),
     deletePoll: data => dispatch(actions.onDeletePoll(data))
   };
 };

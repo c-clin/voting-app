@@ -6,6 +6,7 @@ const PollSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   },
+  createdBy: String,
   question: String,
   answers: [
     {

@@ -19,11 +19,15 @@ export const onFetchAllPolls = () => dispatch => {
 };
 
 // fetch all poll made by current user
-export const onFetchUserPolls = () => dispatch => {
+export const onFetchUserPolls = id => dispatch => {
   dispatch({ type: actionTypes.ON_LOADING });
 
+  const data = {
+    id
+  };
+
   axios
-    .get('/api/polls/user')
+    .post('/api/polls/user', data)
     .then(res => {
       dispatch({
         type: actionTypes.FETCH_USER_POLLS,
