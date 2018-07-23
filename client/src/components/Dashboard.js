@@ -47,6 +47,7 @@ export class Dashboard extends Component {
             key={poll._id}
             question={poll.question}
             poll={poll}
+            createdBy={poll.createdBy}
           />
         );
       });

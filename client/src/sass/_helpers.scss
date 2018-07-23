@@ -49,6 +49,21 @@
     text-align: center;
     border-radius: 6px !important;
     transition: all 0.3s ease;
+    p {
+      margin-top: 1rem;
+
+      .created-by {
+        font-family: 'Fredericka the Great', cursive;
+        transition: all 0.3s;
+        display: inline-block;
+        font-size: 1.2rem;
+
+        &:hover {
+          transform: scale(1.08) rotate(-15deg);
+          text-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
 
     &:hover {
       box-shadow: 1px 2px 15px rgb(95, 95, 95);

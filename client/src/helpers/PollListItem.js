@@ -19,6 +19,9 @@ const PollListItem = props => {
           </button>
           {props.auth ? voteBtn : null}
         </div>
+        <p>
+          by: <span className="created-by">{props.createdBy}</span>
+        </p>
       </div>
     </div>
   );
