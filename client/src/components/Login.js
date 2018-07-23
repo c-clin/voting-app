@@ -12,6 +12,10 @@ export class Login extends Component {
     password: ''
   };
 
+  componentDidMount() {
+    this.props.restartError();
+  }
+
   loginUser = e => {
     e.preventDefault();
 
@@ -31,10 +35,15 @@ export class Login extends Component {
       <p className="registeredMsg">You are registered! Please log in.</p>
     ) : null;
 
+    const errMsg = this.props.error ? (
+      <p className="errMsg">{this.props.error}</p>
+    ) : null;
+
     return (
       <div className="Login">
         <h3>Login</h3>
         {registeredMsg}
+        {errMsg}
         <form action="#" className="Login__form" onSubmit={this.loginUser}>
           <div>
             <input
@@ -58,7 +67,7 @@ export class Login extends Component {
           </div>
           <button className="register-btn btn btn-info">Login</button>
         </form>
-        <p>
+        <p className="goto-register">
           Don't have an account? Register for one{' '}
           <Link to="/register">here</Link>!
         </p>
@@ -80,7 +89,8 @@ export class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    registered: state.auth.registered
+    registered: state.auth.registered,
+    error: state.auth.error
   };
 };
 

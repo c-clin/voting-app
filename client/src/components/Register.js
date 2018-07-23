@@ -9,6 +9,10 @@ export class Register extends Component {
     password: ''
   };
 
+  componentDidMount() {
+    this.props.restartError();
+  }
+
   registerUser = e => {
     e.preventDefault();
     const data = {
@@ -25,9 +29,14 @@ export class Register extends Component {
   };
 
   render() {
+    const errMsg = this.props.error ? (
+      <p className="errMsg">{this.props.error}</p>
+    ) : null;
+
     return (
       <div className="Register">
         <h3>Register</h3>
+        {errMsg}
         <form action="#" className="Login__form" onSubmit={this.registerUser}>
           <div>
             <label for="name" className="Login__form--label">
@@ -78,7 +87,13 @@ export class Register extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    error: state.auth.error
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(Register);

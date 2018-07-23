@@ -13,7 +13,9 @@ const PollListItem = props => {
         <button name="delete">
           Delete &nbsp;<i className="fa fa-trash-o" aria-hidden="true" />
         </button>
-        <p>by: {props.createdBy}</p>
+        <p>
+          by: <span className="created-by">{props.createdBy}</span>
+        </p>
       </div>
     </div>
   );

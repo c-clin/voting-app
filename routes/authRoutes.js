@@ -63,12 +63,15 @@ module.exports = app => {
   // Jwt Passport
 
   app.post('/api/login', (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      res.status(400).send({ error: 'Please fill in all fields.' });
+    }
 
     User.findOne({ email }).then(user => {
       if (!user) {
-        return res.status(404).json({ error: 'User not found' });
+        return res.status(404).send({ error: 'User not found.' });
       }
 
       bcrypt.compare(password, user.password).then(isMatch => {
@@ -87,7 +90,7 @@ module.exports = app => {
           );
           req.user.id = user.id;
         } else {
-          res.status(400).json({ error: 'Password incorrect' });
+          res.status(400).send({ error: 'Password incorrect.' });
         }
       });
     });
@@ -96,15 +99,21 @@ module.exports = app => {
   app.post('/api/register', (req, res) => {
     const userID = randomString.generate();
 
-    User.findOne({ email: req.body.email }).then(user => {
+    const { email, name, password } = req.body;
+
+    if (!email || !name || !password) {
+      res.status(400).send({ error: 'Please fill in all fields.' });
+    }
+
+    User.findOne({ email }).then(user => {
       if (user) {
-        return res.status(400).json({ error: 'User already exists' });
+        return res.status(400).json({ error: 'User already exists.' });
       } else {
         const newUser = new User({
-          name: req.body.name,
+          name,
           userID,
-          email: req.body.email,
-          password: req.body.password
+          email,
+          password
         });
 
         bcrypt.genSalt(10, (err, salt) => {

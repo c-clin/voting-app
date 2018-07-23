@@ -45,6 +45,9 @@
   .Login .registeredMsg,
   .Register .registeredMsg {
     color: #3f963f; }
+  .Login .errMsg,
+  .Register .errMsg {
+    color: red; }
   .Login__form,
   .Register__form {
     margin-bottom: 50px; }
@@ -68,8 +71,8 @@
       .Login__form--input:focus,
       .Register__form--input:focus {
         outline: none; }
-  .Login p,
-  .Register p {
+  .Login .goto-register,
+  .Register .goto-register {
     margin-top: 6rem;
     font-weight: 300; }
   .Login__or,
@@ -95,7 +98,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: linear-gradient(to top, rgba(111, 225, 245, 0.6), rgba(255, 209, 148, 0.6)), url(./assets/dashboard.png);
+  background-image: linear-gradient(to right bottom, rgba(111, 225, 245, 0.6), rgba(255, 209, 148, 0.6)), url(./assets/dessert.jpg);
   background-size: cover;
   background-position: top; }
   .Dashboard h1 {
@@ -181,7 +184,7 @@
     max-width: 500px;
     min-height: 85px;
     margin: 10px auto;
-    background-color: rgba(60, 85, 131, 0.7);
+    background-color: rgba(60, 85, 131, 0.8);
     box-shadow: 1px 2px 10px grey;
     font-weight: 300;
     color: white;
@@ -376,7 +379,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: linear-gradient(to right bottom, rgba(217, 167, 199, 0.55), rgba(255, 252, 220, 0.55)), url(./assets/community.png);
+  background-image: linear-gradient(to right bottom, rgba(217, 167, 199, 0.55), rgba(255, 252, 220, 0.55)), url(./assets/dots.jpg);
   background-size: cover;
   background-position: top; }
   .AllPolls h1 {

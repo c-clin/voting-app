@@ -24,7 +24,12 @@ export const registerUser = (data, history) => dispatch => {
       history.push('/login');
       dispatch({ type: actionTypes.USER_REGISTERED });
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+      dispatch({
+        type: actionTypes.AUTH_ERROR,
+        payload: e.response.data.error
+      });
+    });
 };
 
 export const loginUser = (data, history) => dispatch => {
@@ -43,7 +48,12 @@ export const loginUser = (data, history) => dispatch => {
       dispatch({ type: actionTypes.FETCH_USER, payload: decoded });
       history.push('/dashboard');
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+      dispatch({
+        type: actionTypes.AUTH_ERROR,
+        payload: e.response.data.error
+      });
+    });
 };
 
 export const logoutUser = history => dispatch => {
@@ -51,4 +61,8 @@ export const logoutUser = history => dispatch => {
   delete axios.defaults.headers.common['Authorization'];
   dispatch({ type: actionTypes.FETCH_USER, payload: null });
   history.push('/');
+};
+
+export const restartError = () => dispatch => {
+  dispatch({ type: actionTypes.AUTH_ERROR, payload: false });
 };
